@@ -1,132 +1,993 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-126025947-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Harvey — Golf AI</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-        gtag('config', 'UA-126025947-1');
-    </script>
-    <meta charset="utf-8">
-    <meta name="application-name" content="Free Rider Jumps" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
+  <!-- PWA — Android (Chrome) -->
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#10b981">
+  <meta name="mobile-web-app-capable" content="yes">
 
-    <!-- Icons -->
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://cdn.kanoapps.com/free_rider_jumps/builds/firebase/1.0.70/apple-touch-icon.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="https://cdn.kanoapps.com/free_rider_jumps/builds/firebase/1.0.70/apple-touch-icon-precomposed.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="https://cdn.kanoapps.com/free_rider_jumps/builds/firebase/1.0.70/apple-touch-icon-57x57.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://cdn.kanoapps.com/free_rider_jumps/builds/firebase/1.0.70/apple-touch-icon-114x114.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://cdn.kanoapps.com/free_rider_jumps/builds/firebase/1.0.70/apple-touch-icon-144x144.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="60x60" href="https://cdn.kanoapps.com/free_rider_jumps/builds/firebase/1.0.70/apple-touch-icon-60x60.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="https://cdn.kanoapps.com/free_rider_jumps/builds/firebase/1.0.70/apple-touch-icon-76x76.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="https://cdn.kanoapps.com/free_rider_jumps/builds/firebase/1.0.70/apple-touch-icon-152x152.png" />
-    <link rel="icon" type="image/png" href="https://cdn.kanoapps.com/free_rider_jumps/builds/firebase/1.0.70/favicon-196x196.png" sizes="196x196" />
-    <link rel="icon" type="image/png" href="https://cdn.kanoapps.com/free_rider_jumps/builds/firebase/1.0.70/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/png" href="https://cdn.kanoapps.com/free_rider_jumps/builds/firebase/1.0.70/favicon-32x32.png" sizes="32x32" />
-    <link rel="icon" type="image/png" href="https://cdn.kanoapps.com/free_rider_jumps/builds/firebase/1.0.70/favicon-16x16.png" sizes="16x16" />
-    <link rel="icon" type="image/png" href="https://cdn.kanoapps.com/free_rider_jumps/builds/firebase/1.0.70/favicon-128.png" sizes="128x128" />
-    <meta name="msapplication-TileColor" content="#FFFFFF" />
-    <meta name="msapplication-TileImage" content="https://cdn.kanoapps.com/free_rider_jumps/builds/firebase/1.0.70/mstile-144x144.png" />
-    <meta name="msapplication-square70x70logo" content="https://cdn.kanoapps.com/free_rider_jumps/builds/firebase/1.0.70/mstile-70x70.png" />
-    <meta name="msapplication-square150x150logo" content="https://cdn.kanoapps.com/free_rider_jumps/builds/firebase/1.0.70/mstile-150x150.png" />
-    <meta name="msapplication-wide310x150logo" content="https://cdn.kanoapps.com/free_rider_jumps/builds/firebase/1.0.70/mstile-310x150.png" />
-    <meta name="msapplication-square310x310logo" content="https://cdn.kanoapps.com/free_rider_jumps/builds/firebase/1.0.70/mstile-310x310.png" />
-    <link rel="mask-icon" href="https://cdn.kanoapps.com/free_rider_jumps/builds/firebase/1.0.70//safari-pinned-tab.svg" color="#5bbad5">
+  <!-- PWA — iOS (Safari) -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Harvey">
+  <link rel="apple-touch-icon" href="/api/icon/180">
+  <link rel="apple-touch-icon" sizes="152x152" href="/api/icon/152">
+  <link rel="apple-touch-icon" sizes="144x144" href="/api/icon/144">
+  <link rel="apple-touch-icon" sizes="128x128" href="/api/icon/128">
 
-    <!-- Web Manifest-->
-    <link rel="manifest" href="site.webmanifest">
-    <meta name="msapplication-TileColor" content="#000000">
-    <meta name="theme-color" content="#000000">
+  <!-- iOS splash screens (portrait) -->
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>
-        Free Rider Jumps - Stickman Bike Race Game
-    </title>
-    <meta name="description" content="Compete for highest scores against friends by racing your stickman bike farthest and with best tricks!" />
-    <meta name="google-site-verification" content="4YGyr5Kqv1eOl313G2BJcJAj0Uc2bD9EvrpGe5GnUAU" />
-    <link rel="chrome-webstore-item" href="https://chrome.google.com/webstore/detail/mcmbhjbpojjcgpecdiieacfnfngebhho/">
-
-    <script defer src="/__/firebase/5.4.2/firebase-app.js"></script>
-    <script defer src="/__/firebase/init.js"></script>
-    <script>
-        var _rollbarConfig = {
-            accessToken: "30016704087d41318cb2ede474911b2f",
-            captureUncaught: true,
-            captureUnhandledRejections: true,
-            payload: {
-                environment: "production"
-            }
-        };
-    </script>
-
-    <!-- <script type="text/javascript" src="https://cdn.kanoapps.com/free_rider_jumps/builds/firebase/1.0.70/scripts/rollbar.js" charset="utf-8"></script> -->
-    <script type="text/javascript" src="//imasdk.googleapis.com/js/sdkloader/ima3.js"></script>
-    <script>
-        if(typeof navigator.serviceWorker != "undefined")
-        {
-            //Add this below content to your HTML page, or add the js file to your page at the very top to register service worker
-            if (navigator.serviceWorker.controller) {
-                console.log('[Free Rider Jumps] active service worker found, no need to register')
-            } else {
-                //Register the ServiceWorker
-                navigator.serviceWorker.register('free-rider-sw.js?version=' + encodeURIComponent('1.0.70'), {
-                    scope: './'
-                }).then(function (reg) {
-                    console.log('Service worker has been registered for scope:' + reg.scope);
-                });
-            }
+  <!-- Favicon fallback -->
+  <link rel="icon" type="image/png" sizes="192x192" href="/api/icon/192">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            emerald: {
+              50:'#ecfdf5',100:'#d1fae5',200:'#a7f3d0',300:'#6ee7b7',
+              400:'#34d399',500:'#10b981',600:'#059669',700:'#047857',
+              800:'#065f46',900:'#064e3b',950:'#022c22',
+            },
+            dark: { 900:'#0a0f0d', 800:'#111b17', 700:'#1a2e26', 600:'#223a30' }
+          }
         }
-    </script>
-    <link rel="stylesheet" type="text/css" href="https://cdn.kanoapps.com/free_rider_jumps/builds/firebase/1.0.70/styles/styles.css" />
-    
+      }
+    }
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+    body { font-family:'Inter',sans-serif; }
+    .mono { font-family:'JetBrains Mono',monospace; }
+
+    .nav-item { transition:all .15s ease; }
+    .nav-item.active { background:rgba(16,185,129,.15); border-right:3px solid #10b981; color:#34d399; }
+
+    .glass-panel { background:rgba(17,27,23,.7); backdrop-filter:blur(12px); border:1px solid rgba(16,185,129,.1); }
+
+    .scroll-hide::-webkit-scrollbar { display:none; }
+    .scroll-hide { -ms-overflow-style:none; scrollbar-width:none; }
+
+    /* Chat bubbles */
+    .bubble-harvey {
+      background:rgba(16,185,129,.08);
+      border:1px solid rgba(16,185,129,.15);
+      border-radius:0 14px 14px 14px;
+      white-space:pre-wrap;
+      font-family:'JetBrains Mono',monospace;
+      font-size:12.5px;
+      line-height:1.7;
+    }
+    .bubble-grayson {
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.07);
+      border-radius:14px 0 14px 14px;
+      font-family:'JetBrains Mono',monospace;
+      font-size:12.5px;
+    }
+
+    /* Pending confirm highlight */
+    .bubble-pending {
+      background:rgba(245,158,11,.07);
+      border:1px solid rgba(245,158,11,.25);
+      border-radius:0 14px 14px 14px;
+      white-space:pre-wrap;
+      font-family:'JetBrains Mono',monospace;
+      font-size:12.5px;
+      line-height:1.7;
+    }
+
+    /* Typing indicator */
+    .typing-dot { width:6px;height:6px;background:#10b981;border-radius:50%;animation:blink 1.2s infinite; }
+    .typing-dot:nth-child(2){animation-delay:.2s}
+    .typing-dot:nth-child(3){animation-delay:.4s}
+    @keyframes blink{0%,80%,100%{opacity:.2}40%{opacity:1}}
+
+    .status-dot { animation:pulse 2s infinite; }
+    @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+
+    textarea:focus { outline:none; }
+    .chart-container { position:relative; height:280px; width:100%; }
+
+    /* Input hint */
+    .hint { font-size:11px; color:#4b5563; }
+
+    /* Edit row */
+    .row-editing td { background: rgba(16,185,129,.05); }
+    .edit-input {
+      background: rgba(0,0,0,.3);
+      border: 1px solid rgba(16,185,129,.3);
+      border-radius: 6px;
+      color: #e5e7eb;
+      font-size: 12px;
+      padding: 2px 6px;
+      width: 100%;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .edit-input:focus { outline: none; border-color: #10b981; }
+    .btn-edit   { font-size:11px; padding:2px 8px; border-radius:5px; cursor:pointer; background:rgba(16,185,129,.15); border:1px solid rgba(16,185,129,.3); color:#34d399; transition:all .12s; }
+    .btn-edit:hover { background:rgba(16,185,129,.3); }
+    .btn-save   { font-size:11px; padding:2px 8px; border-radius:5px; cursor:pointer; background:rgba(16,185,129,.8); border:none; color:#fff; transition:all .12s; }
+    .btn-save:hover { background:#10b981; }
+    .btn-cancel { font-size:11px; padding:2px 8px; border-radius:5px; cursor:pointer; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.1); color:#9ca3af; transition:all .12s; }
+    .btn-cancel:hover { background:rgba(255,255,255,.15); }
+    .btn-delete { font-size:11px; padding:2px 8px; border-radius:5px; cursor:pointer; background:rgba(239,68,68,.15); border:1px solid rgba(239,68,68,.3); color:#f87171; transition:all .12s; }
+    .btn-delete:hover { background:rgba(239,68,68,.3); }
+    .btn-confirm-del { font-size:11px; padding:2px 8px; border-radius:5px; cursor:pointer; background:#ef4444; border:none; color:#fff; }
+
+    /* Waiting for y/n state */
+    #chat-input.waiting {
+      border-color: rgba(245,158,11,.5);
+      color: #fbbf24;
+    }
+    #input-hint.waiting-hint { color: #f59e0b; }
+  </style>
 </head>
+<body class="bg-dark-900 text-gray-200 h-screen w-screen overflow-hidden flex">
 
-<body>
-    <div class="game-container" id="game-container">
+<!-- ═══ SIDEBAR ═══ -->
+<aside class="w-60 bg-dark-800 border-r border-emerald-900/30 flex flex-col shrink-0">
+  <div class="p-5 border-b border-emerald-900/20">
+    <div class="flex items-center gap-3">
+      <div class="w-8 h-8 rounded-lg bg-emerald-700 flex items-center justify-center text-white font-bold text-sm">H</div>
+      <div>
+        <h1 class="font-bold text-emerald-400 text-base tracking-tight">Harvey</h1>
+        <p class="text-xs text-gray-500">Golf AI Caddy</p>
+      </div>
+    </div>
+  </div>
 
-        <div class="centered-container">
-            <div class="freerider-canvas-container" id="freerider-canvas-container" style="visibility: hidden"></div>
-        </div>
+  <nav class="flex-1 py-3 space-y-0.5">
+    <button onclick="switchTab('chat')" id="nav-chat"
+      class="nav-item active w-full text-left px-5 py-2.5 text-sm font-medium text-gray-400 hover:text-emerald-300 hover:bg-emerald-900/10 flex items-center gap-3">
+      <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/>
+      </svg>
+      Chat with Harvey
+    </button>
+    <button onclick="switchTab('analytics')" id="nav-analytics"
+      class="nav-item w-full text-left px-5 py-2.5 text-sm font-medium text-gray-400 hover:text-emerald-300 hover:bg-emerald-900/10 flex items-center gap-3">
+      <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+      </svg>
+      Analytics
+    </button>
+    <button onclick="switchTab('totals')" id="nav-totals"
+      class="nav-item w-full text-left px-5 py-2.5 text-sm font-medium text-gray-400 hover:text-emerald-300 hover:bg-emerald-900/10 flex items-center gap-3">
+      <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+      </svg>
+      Lifetime Totals
+    </button>
+    <button onclick="switchTab('log')" id="nav-log"
+      class="nav-item w-full text-left px-5 py-2.5 text-sm font-medium text-gray-400 hover:text-emerald-300 hover:bg-emerald-900/10 flex items-center gap-3">
+      <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+      </svg>
+      Shot Log
+    </button>
+  </nav>
 
-        <div class="centered-container">
-            <div class="phaser-canvas-container" id="phaser-canvas-container"></div>
-        </div>
+  <div class="p-4 border-t border-emerald-900/20 space-y-2">
+    <div class="glass-panel rounded-xl p-3">
+      <div class="flex items-center gap-2 mb-1">
+        <div class="w-2 h-2 rounded-full bg-emerald-500 status-dot" id="status-dot"></div>
+        <span class="text-xs font-medium text-emerald-400" id="status-text">Connecting…</span>
+      </div>
+      <p class="text-xs text-gray-600">Ollama · gemma4 · local</p>
+    </div>
+    <div class="glass-panel rounded-xl p-3" id="round-status-panel">
+      <p class="text-xs font-medium text-gray-500 mb-1">Active round</p>
+      <p class="text-xs text-gray-400" id="round-status-text">No round open</p>
+    </div>
+  </div>
+</aside>
 
-        <div id="ads-container" class="ads-container centered-container" style="display:none">
-            <video id="ads-player">
-            </video>
-            <div id="ads-sdk-container" class="ads-container centered-container"></div>
-        </div>
+<!-- ═══ MAIN ═══ -->
+<main class="flex-1 flex flex-col overflow-hidden bg-dark-900 relative">
+  <div class="absolute top-0 right-0 w-80 h-80 bg-emerald-900/8 rounded-full blur-3xl pointer-events-none"></div>
+
+  <!-- ─── CHAT TAB ─── -->
+  <section id="section-chat" class="flex flex-col h-full">
+    <div class="px-6 py-4 border-b border-emerald-900/20 shrink-0 flex items-center justify-between">
+      <div>
+        <h2 class="font-semibold text-white text-base">Chat with Harvey</h2>
+        <p class="text-xs text-gray-500 mt-0.5">Type "New shot:" to log · ask questions for instant stats</p>
+      </div>
+      <button onclick="clearChat()" class="text-xs text-gray-500 hover:text-gray-300 px-3 py-1.5 border border-emerald-900/20 rounded-lg transition-colors">
+        Clear chat
+      </button>
     </div>
 
-    <div class="footer">
-        <a class="footer-messenger-badge" href="http://fb.gg/play/freeriderjumps" target="_blank">
-            <img src="https://cdn.kanoapps.com/free_rider_jumps/builds/firebase/1.0.70/assets/badges/messenger_badge@2x.png" width="135" height="40" />
-        </a>
-        <a class="footer-chrome-badge" id="add-to-chrome-button" href="https://chrome.google.com/webstore/detail/free-rider-jumps/mcmbhjbpojjcgpecdiieacfnfngebhho"
-            target="_blank">
-            <img src=" https://cdn.kanoapps.com/free_rider_jumps/builds/firebase/1.0.70/assets/badges/chrome_badge@2x.png" width="135" height="40" />
-        </a>
-        <a class="footer-apple-badge" href="https://itunes.apple.com/ca/app/free-rider-hd/id773716739?mt=8" target="_blank">
-            <img src="https://cdn.kanoapps.com/free_rider_jumps/builds/firebase/1.0.70/assets/badges/app_store_badge@2x.png" width="135" height="40" />
-        </a>
-        <a class="footer-google-badge" href="https://play.google.com/store/apps/details?id=com.kanoapps.frhd&hl=en"
-            target="_blank">
-            <img src="https://cdn.kanoapps.com/free_rider_jumps/builds/firebase/1.0.70/assets/badges/google_play_badge@2x.png" width="135" height="40" />
-        </a>
-        
+    <!-- Messages -->
+    <div id="chat-messages" class="flex-1 overflow-y-auto scroll-hide px-6 py-4 space-y-4">
+      <!-- Welcome -->
+      <div class="flex gap-3 items-start">
+        <div class="w-7 h-7 rounded-full bg-emerald-700 flex items-center justify-center text-xs font-bold text-white shrink-0 mt-0.5">H</div>
+        <div class="bubble-harvey px-4 py-3 max-w-xl">
+Good to see you, Grayson. Ready to track some shots.
+
+<span class="text-yellow-400 font-medium">Start a round first:</span> New round: [course], [temp], [elevation]
+Then log shots: <span class="text-emerald-400 font-medium">New shot:</span> [club], [lie], [carry], [shape], [dispersion]
+End a round: <span class="text-gray-400 font-medium">End round</span>
+Ask questions for instant stats anytime.
+          <span class="text-xs text-gray-600 mt-2 block">Harvey · just now</span>
+        </div>
+      </div>
     </div>
-    
-    <script type="text/javascript" src="script.js" charset="utf-8"></script>
-    <script>
-        if (chrome.app.isInstalled) {
-            document.getElementById('add-to-chrome-button').style.display = 'none';
+
+    <!-- Typing indicator -->
+    <div id="typing-indicator" class="hidden px-6 pb-2">
+      <div class="flex gap-3 items-start">
+        <div class="w-7 h-7 rounded-full bg-emerald-700 flex items-center justify-center text-xs font-bold text-white shrink-0">H</div>
+        <div class="bubble-harvey px-4 py-3 flex gap-1.5 items-center">
+          <div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Input bar -->
+    <div class="px-6 py-4 border-t border-emerald-900/20 shrink-0">
+      <div class="glass-panel rounded-2xl p-3 flex gap-3 items-end">
+        <textarea id="chat-input" rows="1"
+          placeholder="New shot: 7 iron, fairway, 155 carry, straight, right 5…"
+          class="flex-1 bg-transparent text-sm text-gray-200 placeholder-gray-600 resize-none focus:outline-none leading-relaxed max-h-32 overflow-y-auto mono"
+          onkeydown="handleKey(event)" oninput="autoResize(this)"></textarea>
+        <button onclick="sendMessage()"
+          class="shrink-0 w-9 h-9 bg-emerald-600 hover:bg-emerald-500 rounded-xl flex items-center justify-center transition-colors shadow-lg shadow-emerald-900/20">
+          <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+          </svg>
+        </button>
+      </div>
+      <p class="hint mt-2 px-1" id="input-hint">Enter to send · Shift+Enter for new line</p>
+    </div>
+  </section>
+
+  <!-- ─── ANALYTICS TAB ─── -->
+  <section id="section-analytics" class="hidden flex-1 overflow-y-auto scroll-hide p-6">
+    <div class="mb-6">
+      <h2 class="text-2xl font-bold text-white mb-1">Analytics</h2>
+      <p class="text-sm text-gray-500">Charts populate once shot data is logged.</p>
+    </div>
+
+    <div class="glass-panel rounded-xl p-4 mb-5 flex flex-wrap gap-4 items-center">
+      <div class="flex items-center gap-2">
+        <label class="text-xs font-medium text-emerald-400 uppercase tracking-wider">Club</label>
+        <select id="filter-club" onchange="refreshCharts()"
+          class="bg-dark-800 border border-emerald-900/30 text-gray-200 text-xs rounded-lg px-3 py-1.5 focus:outline-none focus:border-emerald-500">
+          <option value="all">All clubs</option>
+        </select>
+      </div>
+      <div class="flex items-center gap-2">
+        <label class="text-xs font-medium text-emerald-400 uppercase tracking-wider">Range</label>
+        <select id="filter-range" onchange="refreshCharts()"
+          class="bg-dark-800 border border-emerald-900/30 text-gray-200 text-xs rounded-lg px-3 py-1.5 focus:outline-none focus:border-emerald-500">
+          <option value="30">Last 30 days</option>
+          <option value="90">Last 3 months</option>
+          <option value="365">Last year</option>
+          <option value="all">All time</option>
+        </select>
+      </div>
+      <div class="flex items-center gap-2">
+        <label class="text-xs font-medium text-emerald-400 uppercase tracking-wider">Lie</label>
+        <select id="filter-lie" onchange="refreshCharts()"
+          class="bg-dark-800 border border-emerald-900/30 text-gray-200 text-xs rounded-lg px-3 py-1.5 focus:outline-none focus:border-emerald-500">
+          <option value="all">All lies</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 mb-5">
+      <div class="glass-panel rounded-xl p-5">
+        <h3 class="text-sm font-semibold text-white mb-4">Avg carry by club</h3>
+        <div class="chart-container">
+          <div class="flex items-center justify-center h-full text-sm text-gray-600" id="chart-carry-empty">No shots logged yet</div>
+          <canvas id="chart-carry" class="hidden"></canvas>
+        </div>
+      </div>
+      <div class="glass-panel rounded-xl p-5">
+        <h3 class="text-sm font-semibold text-white mb-4">Shot shape distribution</h3>
+        <div class="chart-container">
+          <div class="flex items-center justify-center h-full text-sm text-gray-600" id="chart-shape-empty">No shots logged yet</div>
+          <canvas id="chart-shape" class="hidden"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
+      <div class="glass-panel rounded-xl p-5">
+        <h3 class="text-sm font-semibold text-white mb-4">Carry trend over time</h3>
+        <div class="chart-container" style="height:220px">
+          <div class="flex items-center justify-center h-full text-sm text-gray-600" id="chart-trend-empty">No shots logged yet</div>
+          <canvas id="chart-trend" class="hidden"></canvas>
+        </div>
+      </div>
+      <div class="glass-panel rounded-xl p-5">
+        <h3 class="text-sm font-semibold text-white mb-4">Avg dispersion by club</h3>
+        <div class="chart-container" style="height:220px">
+          <div class="flex items-center justify-center h-full text-sm text-gray-600" id="chart-disp-empty">No shots logged yet</div>
+          <canvas id="chart-disp" class="hidden"></canvas>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── LIFETIME TOTALS TAB ─── -->
+  <section id="section-totals" class="hidden flex-1 overflow-y-auto scroll-hide p-6">
+    <div class="mb-6">
+      <h2 class="text-2xl font-bold text-white mb-1">Lifetime Totals</h2>
+      <p class="text-sm text-gray-500">Cumulative stats across all tracked rounds and shots.</p>
+    </div>
+
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+      <div class="glass-panel rounded-xl p-5 border-l-4 border-emerald-500">
+        <p class="text-xs font-medium text-emerald-400 uppercase tracking-wider mb-1">Total shots</p>
+        <p class="text-3xl font-bold text-white" id="stat-shots">—</p>
+      </div>
+      <div class="glass-panel rounded-xl p-5 border-l-4 border-emerald-400">
+        <p class="text-xs font-medium text-emerald-400 uppercase tracking-wider mb-1">Rounds</p>
+        <p class="text-3xl font-bold text-white" id="stat-sessions">—</p>
+      </div>
+      <div class="glass-panel rounded-xl p-5 border-l-4 border-yellow-500">
+        <p class="text-xs font-medium text-yellow-400 uppercase tracking-wider mb-1">Avg carry</p>
+        <p class="text-3xl font-bold text-white" id="stat-avg-carry">—</p>
+      </div>
+      <div class="glass-panel rounded-xl p-5 border-l-4 border-blue-500">
+        <p class="text-xs font-medium text-blue-400 uppercase tracking-wider mb-1">Most used club</p>
+        <p class="text-2xl font-bold text-white" id="stat-top-club">—</p>
+      </div>
+    </div>
+
+    <div class="glass-panel rounded-xl p-5">
+      <h3 class="text-sm font-semibold text-white mb-4">Club breakdown</h3>
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm text-left">
+          <thead class="text-xs text-emerald-400 uppercase border-b border-emerald-900/20">
+            <tr>
+              <th class="py-2 px-3">Club</th>
+              <th class="py-2 px-3">Shots</th>
+              <th class="py-2 px-3">Avg carry</th>
+              <th class="py-2 px-3">Avg L/R disp</th>
+              <th class="py-2 px-3">Avg S/L disp</th>
+            </tr>
+          </thead>
+          <tbody class="text-gray-300" id="club-table-body">
+            <tr><td colspan="5" class="py-6 px-3 text-center text-gray-600 text-sm">No data yet</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SHOT LOG TAB ─── -->
+  <section id="section-log" class="hidden flex-1 overflow-y-auto scroll-hide p-6">
+    <div class="mb-6 flex items-center justify-between">
+      <div>
+        <h2 class="text-2xl font-bold text-white mb-1">Shot Log</h2>
+        <p class="text-sm text-gray-500">Every shot Harvey has recorded.</p>
+      </div>
+      <button onclick="exportCSV()" class="text-xs px-4 py-2 border border-emerald-900/30 text-emerald-400 hover:bg-emerald-900/10 rounded-lg transition-colors">
+        Export CSV
+      </button>
+    </div>
+
+    <div class="glass-panel rounded-xl overflow-x-auto">
+      <table class="w-full text-sm text-left">
+        <thead class="text-xs text-emerald-400 uppercase border-b border-emerald-900/20">
+          <tr>
+            <th class="py-2 px-3">#</th>
+            <th class="py-2 px-3">Date</th>
+            <th class="py-2 px-3">Course</th>
+            <th class="py-2 px-3">Club</th>
+            <th class="py-2 px-3">Lie</th>
+            <th class="py-2 px-3">Shape</th>
+            <th class="py-2 px-3">Carry</th>
+            <th class="py-2 px-3">L/R disp</th>
+            <th class="py-2 px-3">S/L disp</th>
+            <th class="py-2 px-3">Temp</th>
+            <th class="py-2 px-3">Elev</th>
+            <th class="py-2 px-3">Actions</th>
+          </tr>
+        </thead>
+        <tbody class="text-gray-300" id="shot-log-body">
+          <tr><td colspan="12" class="py-6 px-3 text-center text-gray-600 text-sm">No shots logged yet</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</main>
+
+<!-- ═══ JAVASCRIPT ═══ -->
+<script>
+  /* ── State ── */
+  let charts = {};
+  let awaitingConfirm = false;   // true when Harvey is waiting for y/n
+
+  /* ── Tab switching ── */
+  function switchTab(tab) {
+    document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
+    document.getElementById('nav-' + tab).classList.add('active');
+    document.querySelectorAll('main section').forEach(el => {
+      el.classList.add('hidden');
+      el.classList.remove('flex','flex-col');
+    });
+    const sec = document.getElementById('section-' + tab);
+    sec.classList.remove('hidden');
+    if (tab === 'chat') { sec.classList.add('flex','flex-col'); sec.style.height='100%'; }
+    if (tab === 'analytics') loadAnalytics();
+    if (tab === 'totals')    loadTotals();
+    if (tab === 'log')       loadShotLog();
+  }
+
+  /* ── Textarea auto-resize ── */
+  function autoResize(el) {
+    el.style.height = 'auto';
+    el.style.height = Math.min(el.scrollHeight, 120) + 'px';
+  }
+
+  /* ── Enter sends, Shift+Enter newline ── */
+  function handleKey(e) {
+    if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); }
+  }
+
+  /* ── Escape cancels pending confirm ── */
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && awaitingConfirm) {
+      document.getElementById('chat-input').value = 'n';
+      sendMessage();
+    }
+  });
+
+  /* ── Helpers ── */
+  function esc(s) {
+    return String(s ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+  function showTyping()  { document.getElementById('typing-indicator').classList.remove('hidden'); }
+  function hideTyping()  { document.getElementById('typing-indicator').classList.add('hidden'); }
+
+  function setWaiting(on) {
+    awaitingConfirm = on;
+    const input = document.getElementById('chat-input');
+    const hint  = document.getElementById('input-hint');
+    if (on) {
+      input.classList.add('waiting');
+      input.placeholder = 'y = confirm · n = cancel · Esc = cancel';
+      hint.textContent  = 'Waiting for confirmation — type y or n';
+      hint.classList.add('waiting-hint');
+    } else {
+      input.classList.remove('waiting');
+      input.placeholder = 'New shot: 7 iron, fairway, 155 carry, straight, right 5…';
+      hint.textContent  = 'Enter to send · Shift+Enter for new line';
+      hint.classList.remove('waiting-hint');
+    }
+  }
+
+  /* ── Append message bubble ── */
+  function appendMessage(role, text, type) {
+    const container = document.getElementById('chat-messages');
+    const isHarvey  = role === 'harvey';
+    const time = new Date().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
+
+    const wrapper = document.createElement('div');
+    wrapper.className = 'flex gap-3 items-start' + (isHarvey ? '' : ' flex-row-reverse');
+
+    const avatar = document.createElement('div');
+    avatar.className = 'w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold text-white shrink-0 mt-0.5 '
+      + (isHarvey ? 'bg-emerald-700' : 'bg-dark-600 border border-emerald-900/30');
+    avatar.textContent = isHarvey ? 'H' : 'G';
+
+    // Choose bubble style
+    let bubbleClass = isHarvey ? 'bubble-harvey' : 'bubble-grayson';
+    if (type === 'pending_confirm') bubbleClass = 'bubble-pending';
+
+    const bubble = document.createElement('div');
+    bubble.className = bubbleClass + ' px-4 py-3 max-w-xl';
+
+    // Shot logged — add a green flash
+    if (type === 'shot_logged') {
+      bubble.style.borderColor = 'rgba(16,185,129,.5)';
+      bubble.style.background  = 'rgba(16,185,129,.1)';
+    }
+
+    bubble.innerHTML = `<span class="text-gray-200">${esc(text)}</span>`
+      + `<span class="text-xs text-gray-600 mt-2 block">${isHarvey ? 'Harvey' : 'Grayson'} · ${time}</span>`;
+
+    wrapper.appendChild(avatar);
+    wrapper.appendChild(bubble);
+    container.appendChild(wrapper);
+    container.scrollTop = container.scrollHeight;
+  }
+
+  /* ── Send message ── */
+  async function sendMessage() {
+    const input = document.getElementById('chat-input');
+    const text  = input.value.trim();
+    if (!text) return;
+
+    appendMessage('grayson', text, 'user');
+    input.value = '';
+    input.style.height = 'auto';
+    showTyping();
+
+    try {
+      const res  = await fetch('/api/chat', {
+        method:  'POST',
+        headers: {'Content-Type':'application/json'},
+        body:    JSON.stringify({message: text}),
+      });
+      const data = await res.json();
+      hideTyping();
+
+      if (data.error) {
+        appendMessage('harvey', data.error, 'error');
+        setWaiting(false);
+        return;
+      }
+
+      appendMessage('harvey', data.reply, data.type);
+
+      // Update confirm-waiting state and round status
+      if (data.open_round !== undefined) {
+        updateRoundStatus(data.open_round);
+      }
+
+      if (data.type === 'pending_confirm') {
+        setWaiting(true);
+      } else if (data.type === 'quit') {
+        setWaiting(false);
+        const inp = document.getElementById('chat-input');
+        inp.disabled = true;
+        inp.placeholder = 'Session ended — reload page to start again';
+        document.getElementById('input-hint').textContent = 'Session ended';
+      } else if (data.type === 'round_started' || data.type === 'round_ended') {
+        setWaiting(false);
+        checkStatus();  // refresh sidebar round status
+      } else {
+        setWaiting(false);
+        if (data.shot_logged) {
+          loadShotLog();
         }
-    </script>
+      }
+
+    } catch (err) {
+      hideTyping();
+      appendMessage('harvey', "Couldn't reach Harvey's server. Make sure api.py is running.", 'error');
+      setWaiting(false);
+    }
+
+    input.focus();
+  }
+
+  /* ── Clear chat ── */
+  function clearChat() {
+    const c = document.getElementById('chat-messages');
+    while (c.children.length > 1) c.removeChild(c.lastChild);
+    setWaiting(false);
+  }
+
+  /* ── Analytics ── */
+  async function loadAnalytics() {
+    try {
+      const res  = await fetch('/api/stats/analytics');
+      const data = await res.json();
+      renderCarryChart(data.carry_by_club);
+      renderShapeChart(data.shape_distribution);
+      renderTrendChart(data.carry_over_time);
+      renderDispChart(data.dispersion_by_club);
+      populateFilter('filter-club', data.clubs);
+      populateFilter('filter-lie',  data.lies);
+    } catch { /* backend not running */ }
+  }
+
+  function renderCarryChart(rows) {
+    if (!rows || !rows.length) return;
+    document.getElementById('chart-carry-empty').classList.add('hidden');
+    const canvas = document.getElementById('chart-carry');
+    canvas.classList.remove('hidden');
+    if (charts.carry) charts.carry.destroy();
+    charts.carry = new Chart(canvas, {
+      type: 'bar',
+      data: {
+        labels: rows.map(d => d.club),
+        datasets: [{
+          label:'Avg carry (yds)',
+          data: rows.map(d => d.avg_carry),
+          backgroundColor:'rgba(16,185,129,.7)',
+          borderColor:'#10b981', borderWidth:1,
+          borderRadius:5, borderSkipped:false,
+        }]
+      },
+      options: {
+        responsive:true, maintainAspectRatio:false,
+        plugins:{legend:{display:false}},
+        scales:{
+          y:{grid:{color:'rgba(16,185,129,.05)'},ticks:{color:'#6b7280'}},
+          x:{grid:{display:false},ticks:{color:'#6b7280',maxRotation:45}},
+        }
+      }
+    });
+  }
+
+  function renderShapeChart(rows) {
+    if (!rows || !rows.length) return;
+    document.getElementById('chart-shape-empty').classList.add('hidden');
+    const canvas = document.getElementById('chart-shape');
+    canvas.classList.remove('hidden');
+    if (charts.shape) charts.shape.destroy();
+    charts.shape = new Chart(canvas, {
+      type:'doughnut',
+      data:{
+        labels: rows.map(d => d.shape),
+        datasets:[{
+          data: rows.map(d => d.count),
+          backgroundColor:['#10b981','#34d399','#6ee7b7','#f59e0b','#3b82f6','#8b5cf6'],
+          borderColor:'#111b17', borderWidth:3,
+        }]
+      },
+      options:{
+        responsive:true, maintainAspectRatio:false, cutout:'62%',
+        plugins:{legend:{position:'right',labels:{color:'#9ca3af',boxWidth:11,font:{size:11}}}}
+      }
+    });
+  }
+
+  function renderTrendChart(rows) {
+    if (!rows || !rows.length) return;
+    document.getElementById('chart-trend-empty').classList.add('hidden');
+    const canvas = document.getElementById('chart-trend');
+    canvas.classList.remove('hidden');
+    const ctx  = canvas.getContext('2d');
+    const grad = ctx.createLinearGradient(0,0,0,220);
+    grad.addColorStop(0,'rgba(16,185,129,.25)');
+    grad.addColorStop(1,'rgba(16,185,129,0)');
+    if (charts.trend) charts.trend.destroy();
+    charts.trend = new Chart(canvas, {
+      type:'line',
+      data:{
+        labels: rows.map(d => d.date),
+        datasets:[{
+          label:'Avg carry (yds)',
+          data: rows.map(d => d.avg_carry),
+          borderColor:'#10b981', backgroundColor:grad,
+          fill:true, tension:.35,
+          pointBackgroundColor:'#064e3b', pointBorderColor:'#10b981',
+          pointBorderWidth:2, pointRadius:3,
+        }]
+      },
+      options:{
+        responsive:true, maintainAspectRatio:false,
+        plugins:{legend:{display:false}},
+        scales:{
+          y:{grid:{color:'rgba(16,185,129,.05)'},ticks:{color:'#6b7280'}},
+          x:{grid:{display:false},ticks:{color:'#6b7280',maxTicksLimit:8}},
+        }
+      }
+    });
+  }
+
+  function renderDispChart(rows) {
+    if (!rows || !rows.length) return;
+    document.getElementById('chart-disp-empty').classList.add('hidden');
+    const canvas = document.getElementById('chart-disp');
+    canvas.classList.remove('hidden');
+    if (charts.disp) charts.disp.destroy();
+    charts.disp = new Chart(canvas, {
+      type:'bar',
+      data:{
+        labels: rows.map(d => d.club),
+        datasets:[
+          {
+            label:'Avg L/R disp (yds)',
+            data: rows.map(d => d.avg_lr ?? 0),
+            backgroundColor:'rgba(59,130,246,.7)',
+            borderColor:'#3b82f6', borderWidth:1, borderRadius:4,
+          },
+          {
+            label:'Avg S/L disp (yds)',
+            data: rows.map(d => d.avg_sl ?? 0),
+            backgroundColor:'rgba(245,158,11,.7)',
+            borderColor:'#f59e0b', borderWidth:1, borderRadius:4,
+          },
+        ]
+      },
+      options:{
+        responsive:true, maintainAspectRatio:false,
+        plugins:{legend:{labels:{color:'#9ca3af',font:{size:11}}}},
+        scales:{
+          y:{grid:{color:'rgba(16,185,129,.05)'},ticks:{color:'#6b7280'},
+             title:{display:true,text:'yards (- = left/short)',color:'#6b7280',font:{size:10}}},
+          x:{grid:{display:false},ticks:{color:'#6b7280',maxRotation:45}},
+        }
+      }
+    });
+  }
+
+  function populateFilter(id, items) {
+    if (!items) return;
+    const sel = document.getElementById(id);
+    const first = sel.options[0].outerHTML;
+    sel.innerHTML = first;
+    items.forEach(v => {
+      const o = document.createElement('option');
+      o.value = v; o.textContent = v;
+      sel.appendChild(o);
+    });
+  }
+
+  function refreshCharts() { loadAnalytics(); }
+
+  /* ── Lifetime totals ── */
+  async function loadTotals() {
+    try {
+      const d = await (await fetch('/api/stats/totals')).json();
+      document.getElementById('stat-shots').textContent     = d.total_shots ?? '—';
+      document.getElementById('stat-sessions').textContent  = d.total_rounds ?? '—';
+      document.getElementById('stat-avg-carry').textContent = d.avg_carry ? d.avg_carry + ' yds' : '—';
+      document.getElementById('stat-top-club').textContent  = d.most_used_club ?? '—';
+
+      const analytics = await (await fetch('/api/stats/analytics')).json();
+      const tbody = document.getElementById('club-table-body');
+      const rows  = analytics.dispersion_by_club || [];
+      const carry = {};
+      (analytics.carry_by_club || []).forEach(r => carry[r.club] = r.avg_carry);
+
+      if (rows.length) {
+        tbody.innerHTML = rows.map(r => {
+          const lr = r.avg_lr != null ? (r.avg_lr > 0 ? `+${r.avg_lr} R` : r.avg_lr < 0 ? `${r.avg_lr} L` : '0') : '—';
+          const sl = r.avg_sl != null ? (r.avg_sl > 0 ? `+${r.avg_sl} long` : r.avg_sl < 0 ? `${Math.abs(r.avg_sl)} short` : '0') : '—';
+          return `<tr class="border-b border-emerald-900/10 hover:bg-emerald-900/5">
+            <td class="py-2 px-3 font-medium">${esc(r.club)}</td>
+            <td class="py-2 px-3">${(d.club_breakdown||[]).find(c=>c.club===r.club)?.count ?? '—'}</td>
+            <td class="py-2 px-3">${carry[r.club] != null ? carry[r.club]+' yds' : '—'}</td>
+            <td class="py-2 px-3 text-blue-400">${lr}</td>
+            <td class="py-2 px-3 text-yellow-400">${sl}</td>
+          </tr>`;
+        }).join('');
+      } else {
+        tbody.innerHTML = '<tr><td colspan="5" class="py-6 px-3 text-center text-gray-600 text-sm">No data yet</td></tr>';
+      }
+    } catch { /* backend offline */ }
+  }
+
+  /* ── Shot log ── */
+  let _shotData = [];   // keep a local copy for inline editing
+
+  async function loadShotLog() {
+    try {
+      const d = await (await fetch('/api/shots')).json();
+      _shotData = d.shots || [];
+      renderShotLog();
+    } catch { /* backend offline */ }
+  }
+
+  function renderShotLog() {
+    const tbody = document.getElementById('shot-log-body');
+    if (!_shotData.length) {
+      tbody.innerHTML = '<tr><td colspan="12" class="py-6 px-3 text-center text-gray-600 text-sm">No shots logged yet</td></tr>';
+      return;
+    }
+    tbody.innerHTML = _shotData.map(s => buildShotRow(s)).join('');
+  }
+
+  function buildShotRow(s) {
+    const lr = s.dispersion_lr != null ? (s.dispersion_lr > 0 ? `+${s.dispersion_lr}R` : `${s.dispersion_lr}L`) : '—';
+    const sl = s.dispersion_sl != null ? (s.dispersion_sl > 0 ? `+${s.dispersion_sl}` : `${s.dispersion_sl}`) : '—';
+    return `<tr id="row-${s.id}" class="border-b border-emerald-900/10 hover:bg-emerald-900/5" data-id="${s.id}">
+      <td class="py-2 px-3 text-gray-500">${s.shot_in_round ?? '—'}</td>
+      <td class="py-2 px-3">${esc(s.date ?? '—')}</td>
+      <td class="py-2 px-3 text-gray-400">${esc(s.course ?? '—')}</td>
+      <td class="py-2 px-3 font-medium">${esc(s.club ?? '—')}</td>
+      <td class="py-2 px-3 text-gray-400">${esc(s.lie ?? '—')}</td>
+      <td class="py-2 px-3 text-gray-400">${esc(s.shot_shape ?? '—')}</td>
+      <td class="py-2 px-3">${s.carry_distance != null ? s.carry_distance+' yds' : '—'}</td>
+      <td class="py-2 px-3 text-blue-400">${lr}</td>
+      <td class="py-2 px-3 text-yellow-400">${sl}</td>
+      <td class="py-2 px-3 text-gray-400">${s.temperature != null ? s.temperature+'°' : '—'}</td>
+      <td class="py-2 px-3 text-gray-400">${s.elevation != null ? s.elevation+' ft' : '—'}</td>
+      <td class="py-2 px-3 whitespace-nowrap flex gap-1.5 items-center">
+        <button class="btn-edit" onclick="startEdit(${s.id})">Edit</button>
+        <button class="btn-delete" onclick="confirmDelete(${s.id})">Delete</button>
+      </td>
+    </tr>`;
+  }
+
+  /* ── Inline edit ── */
+  const EDITABLE_FIELDS = [
+    {key:'date',         label:'Date',        type:'text'},
+    {key:'course',       label:'Course',      type:'text'},
+    {key:'club',         label:'Club',        type:'text'},
+    {key:'lie',          label:'Lie',         type:'text'},
+    {key:'shot_shape',   label:'Shape',       type:'text'},
+    {key:'carry_distance',label:'Carry',      type:'number'},
+    {key:'dispersion_lr', label:'L/R disp',   type:'number'},
+    {key:'dispersion_sl', label:'S/L disp',   type:'number'},
+    {key:'temperature',  label:'Temp',        type:'number'},
+    {key:'elevation',    label:'Elev',        type:'number'},
+  ];
+
+  function startEdit(id) {
+    const shot = _shotData.find(s => s.id === id);
+    if (!shot) return;
+    const row = document.getElementById('row-' + id);
+    row.classList.add('row-editing');
+
+    row.innerHTML = `
+      <td class="py-2 px-2 text-gray-500">${shot.shot_in_round ?? '—'}</td>
+      ${EDITABLE_FIELDS.map(f => `
+        <td class="py-1 px-1">
+          <input class="edit-input" data-field="${f.key}" type="${f.type}"
+            value="${esc(shot[f.key] ?? '')}" placeholder="${f.label}"/>
+        </td>`).join('')}
+      <td class="py-2 px-2 whitespace-nowrap flex gap-1.5 items-center">
+        <button class="btn-save"   onclick="saveEdit(${id})">Save</button>
+        <button class="btn-cancel" onclick="cancelEdit(${id})">Cancel</button>
+      </td>`;
+  }
+
+  async function saveEdit(id) {
+    const row = document.getElementById('row-' + id);
+    const inputs = row.querySelectorAll('.edit-input');
+    const updates = {};
+    inputs.forEach(inp => {
+      const val = inp.value.trim();
+      if (val !== '') {
+        updates[inp.dataset.field] = inp.type === 'number' ? Number(val) : val;
+      } else {
+        updates[inp.dataset.field] = null;
+      }
+    });
+
+    try {
+      const res = await fetch(`/api/shots/${id}`, {
+        method: 'PATCH',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify(updates),
+      });
+      const data = await res.json();
+      if (data.ok) {
+        // Update local data
+        const idx = _shotData.findIndex(s => s.id === id);
+        if (idx !== -1) _shotData[idx] = {..._shotData[idx], ...updates};
+        row.classList.remove('row-editing');
+        row.outerHTML = buildShotRow(_shotData.find(s => s.id === id));
+      } else {
+        alert('Save failed: ' + (data.error || 'Unknown error'));
+        cancelEdit(id);
+      }
+    } catch (err) {
+      alert('Save failed — check that Harvey is running.');
+      cancelEdit(id);
+    }
+  }
+
+  function cancelEdit(id) {
+    const shot = _shotData.find(s => s.id === id);
+    if (!shot) return;
+    const row = document.getElementById('row-' + id);
+    row.classList.remove('row-editing');
+    row.outerHTML = buildShotRow(shot);
+  }
+
+  /* ── Delete with confirmation ── */
+  function confirmDelete(id) {
+    const shot = _shotData.find(s => s.id === id);
+    if (!shot) return;
+    const row = document.getElementById('row-' + id);
+    // Replace the action buttons with confirm/cancel inline
+    const actionCell = row.querySelector('td:last-child');
+    actionCell.innerHTML = `
+      <span class="text-xs text-red-400 mr-1">Delete shot #${shot.shot_in_round}?</span>
+      <button class="btn-confirm-del" onclick="executeDelete(${id})">Yes</button>
+      <button class="btn-cancel ml-1" onclick="renderShotLog()">No</button>`;
+  }
+
+  async function executeDelete(id) {
+    try {
+      const res = await fetch(`/api/shots/${id}`, {method: 'DELETE'});
+      const data = await res.json();
+      if (data.ok) {
+        _shotData = _shotData.filter(s => s.id !== id);
+        renderShotLog();
+      } else {
+        alert('Delete failed: ' + (data.error || 'Unknown error'));
+        renderShotLog();
+      }
+    } catch {
+      alert('Delete failed — check that Harvey is running.');
+      renderShotLog();
+    }
+  }
+
+  /* ── Export ── */
+  function exportCSV() { window.location.href = '/api/export/csv'; }
+
+  /* ── Health check ── */
+  async function checkStatus() {
+    try {
+      const d = await (await fetch('/api/health')).json();
+      document.getElementById('status-dot').style.background = '#10b981';
+      document.getElementById('status-text').textContent = d.ollama_ok ? 'Harvey ready' : 'Stats ready · Ollama offline';
+      const roundEl = document.getElementById('round-status-text');
+      const panel   = document.getElementById('round-status-panel');
+      if (d.open_round) {
+        roundEl.textContent = d.open_round.course + ' · ' + d.open_round.date;
+        roundEl.className   = 'text-xs text-emerald-400 font-medium';
+        panel.style.borderColor = 'rgba(16,185,129,.3)';
+      } else {
+        roundEl.textContent = 'No round open';
+        roundEl.className   = 'text-xs text-gray-500';
+        panel.style.borderColor = '';
+      }
+    } catch {
+      document.getElementById('status-dot').style.background = '#ef4444';
+      document.getElementById('status-text').textContent = 'Server offline';
+    }
+  }
+
+  function updateRoundStatus(openRound) {
+    const roundEl = document.getElementById('round-status-text');
+    const panel   = document.getElementById('round-status-panel');
+    if (openRound) {
+      roundEl.textContent = openRound.course + ' · ' + openRound.date;
+      roundEl.className   = 'text-xs text-emerald-400 font-medium';
+      panel.style.borderColor = 'rgba(16,185,129,.3)';
+    } else {
+      roundEl.textContent = 'No round open';
+      roundEl.className   = 'text-xs text-gray-500';
+      panel.style.borderColor = '';
+    }
+  }
+
+  /* ── Chart.js defaults ── */
+  Chart.defaults.color = '#9ca3af';
+  Chart.defaults.borderColor = 'rgba(16,185,129,.08)';
+  Chart.defaults.font.family = 'Inter';
+
+  /* ── Init ── */
+  window.addEventListener('load', () => {
+    switchTab('chat');
+    checkStatus();
+    setInterval(checkStatus, 30000);
+
+    // Register service worker for PWA install on both iOS and Android
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js', { scope: '/' })
+        .then(reg => {
+          console.log('[Harvey] Service worker registered:', reg.scope);
+        })
+        .catch(err => {
+          console.warn('[Harvey] Service worker registration failed:', err);
+        });
+    }
+
+    // Handle shortcut URL params (e.g. ?tab=log or ?action=new_round)
+    const params = new URLSearchParams(window.location.search);
+    const tab = params.get('tab');
+    if (tab && ['chat','analytics','totals','log'].includes(tab)) {
+      switchTab(tab);
+    }
+    const action = params.get('action');
+    if (action === 'new_round') {
+      switchTab('chat');
+      setTimeout(() => {
+        const input = document.getElementById('chat-input');
+        if (input) {
+          input.value = 'New round: ';
+          input.focus();
+          autoResize(input);
+        }
+      }, 300);
+    }
+  });
+</script>
 </body>
-    
 </html>
+
